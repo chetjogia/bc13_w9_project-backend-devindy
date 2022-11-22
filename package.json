@@ -1,0 +1,29 @@
+{
+  "name": "bc13_w9_project-backend-devindy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SchoolOfCode/bc13_w9_project-backend-devindy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SchoolOfCode/bc13_w9_project-backend-devindy/issues"
+  },
+  "homepage": "https://github.com/SchoolOfCode/bc13_w9_project-backend-devindy#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.1"
+  }
+}
