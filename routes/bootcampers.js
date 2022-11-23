@@ -4,7 +4,8 @@ const router = express.Router()
 const {
     getBootcampers,
     getBootcamperByID,
-    deleteTopic
+    deleteTopic,
+    addTopic
 } = require("../models/bootcampers.js")
 
 router.get('/bootcampers/', async (req, res) => {
@@ -23,6 +24,12 @@ router.delete('/bootcampers/:id', async function (req, res) {
     console.log(req.body)
      const deletedTopic = await deleteTopic(req.params.id)
      res.json({success: true, payload: deletedTopic})
+})
+
+router.post('/bootcampers/', async function (req, res) {
+    const newTopic = req.body
+    const addedTopic = await addTopic(newTopic)
+    res.json({success: true, payload: addedTopic})
 })
 
 module.exports = {

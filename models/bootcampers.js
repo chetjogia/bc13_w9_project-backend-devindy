@@ -17,8 +17,18 @@ async function getBootcamperByID(id) {
     const deletedTopic = await query ("DELETE FROM strengths_weaknesses WHERE strength_id = $1", [id]);
     return deletedTopic
 }
+
+async function addTopic(newTopic) {
+  
+  const AddedTopic = await query ("INSERT into strengths_weaknesses (bootcamper_id, topic_id, strength_weakness)VALUES ($1, $2, $3)",[newTopic.bootcamperId, newTopic.topicId, newTopic.strengthOrWeakness])
+  const AddedTopicObject = AddedTopic.rows
+  return AddedTopicObject
+}
+
+
   module.exports = {
     getBootcampers,
     getBootcamperByID,
-    deleteTopic
+    deleteTopic,
+    addTopic
   }
