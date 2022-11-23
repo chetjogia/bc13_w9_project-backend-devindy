@@ -21,7 +21,7 @@ router.get('/bootcampers/:id', async function (req, res) {
 })
 
 router.delete('/bootcampers/:id', async function (req, res) {
-    console.log(req.body)
+    console.log(req.params.id)
      const deletedTopic = await deleteTopic(req.params.id)
      res.json({success: true, payload: deletedTopic})
 })
