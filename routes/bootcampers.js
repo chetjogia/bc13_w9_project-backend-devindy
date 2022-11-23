@@ -14,11 +14,16 @@ router.get('/bootcampers/', async (req, res) => {
 })
 
 router.get('/bootcampers/:id', async function (req, res) {
+    
     const specificBootcamper = await getBootcamperByID(req.params.id)
     res.json({ success: true, payload: specificBootcamper});
 })
 
-router.delete('bootcampers/:id',)
+router.delete('/bootcampers/:id', async function (req, res) {
+    console.log(req.body)
+     const deletedTopic = await deleteTopic(req.params.id)
+     res.json({success: true, payload: deletedTopic})
+})
 
 module.exports = {
     router

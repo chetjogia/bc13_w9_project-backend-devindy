@@ -8,13 +8,13 @@ async function getBootcampers() {
   }
 
 async function getBootcamperByID(id) {
-    const specificBootcamper = await query("SELECT *FROM bootcampers WHERE bootcamper_id = $1", [id]);
+    const specificBootcamper = await query("SELECT * FROM bootcampers WHERE bootcamper_id = $1", [id]);
     console.log(specificBootcamper)   
     return specificBootcamper.rows
 }
 
-async function deleteTopic(params) {
-    const deletedTopic = await query ("DELETE FROM strengths_weaknesses WHERE topic_name = $1 AND bootcamper_id = $2"[params.topicName, params.bootcamperID]);
+ async function deleteTopic(id) {
+    const deletedTopic = await query ("DELETE FROM strengths_weaknesses WHERE strength_id = $1", [id]);
     return deletedTopic
 }
   module.exports = {
