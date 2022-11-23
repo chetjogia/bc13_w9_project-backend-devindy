@@ -22,7 +22,7 @@ async function addTopic(newTopic) {
   
   const AddedTopic = await query ("INSERT into strengths_weaknesses (bootcamper_id, topic_id, strength_weakness)VALUES ($1, $2, $3)",[newTopic.bootcamperId, newTopic.topicId, newTopic.strengthOrWeakness])
   const AddedTopicObject = AddedTopic.rows
-  return AddedTopicObject
+  return AddedTopic.rows
 }
 
 

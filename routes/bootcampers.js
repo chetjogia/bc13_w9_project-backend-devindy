@@ -8,7 +8,7 @@ const {
     addTopic
 } = require("../models/bootcampers.js")
 
-router.get('/bootcampers/', async (req, res) => {
+router.get('/bootcampers', async (req, res) => {
 
     const bootCampers = await getBootcampers();
     return res.json({ success: true, payload: bootCampers})
@@ -29,7 +29,7 @@ router.delete('/bootcampers/:id', async function (req, res) {
 router.post('/bootcampers/', async function (req, res) {
     const newTopic = req.body
     const addedTopic = await addTopic(newTopic)
-    res.json({success: true, payload: addedTopic})
+    res.status(200).json({success: true, payload: addedTopic})
 })
 
 module.exports = {

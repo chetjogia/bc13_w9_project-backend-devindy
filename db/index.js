@@ -5,6 +5,7 @@ const pool = new Pool({
 })
 
 module.exports = {
+  pool,
   query: (text, params) => {
     return pool.query(text, params)
   },

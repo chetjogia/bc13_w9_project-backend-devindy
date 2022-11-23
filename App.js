@@ -5,7 +5,7 @@ const morgan = require("morgan")
 // const router = require ('./routes/bootcampers.js')
 
 const app = express();
-const port = 3000;
+
 const { router }= require ("./routes/bootcampers.js")
 
 app.use(express.json());
@@ -16,6 +16,5 @@ app.use(express.static("public"))
 
 app.use("/api", router)
 
-app.listen(port, function () {
-  console.log(`Server listening on port ${port}`);
-});
+
+module.exports = { app }
