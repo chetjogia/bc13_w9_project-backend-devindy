@@ -20,9 +20,9 @@ async function getBootcamperByID(id) {
 
 async function addTopic(newTopic) {
   
-  const AddedTopic = await query ("INSERT into strengths_weaknesses (bootcamper_id, topic_id, strength_weakness, unique_id)VALUES ($1, $2, $3, $4)",[newTopic.bootcamperId, newTopic.topicId, newTopic.strengthOrWeakness, newTopic.uniqueId])
+  const AddedTopic = await query ("INSERT into strengths_weaknesses (bootcamper_id, topic_id, strength_weakness, unique_id)VALUES ($1, $2, $3, $4) RETURNING *",[newTopic.bootcamperId, newTopic.topicId, newTopic.strengthOrWeakness, newTopic.uniqueId])
   const AddedTopicObject = AddedTopic.rows
-  return AddedTopic.rows
+  return AddedTopicObject
 }
 
 
