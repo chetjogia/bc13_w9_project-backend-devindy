@@ -14,8 +14,8 @@ async function getBootcamperByID(id) {
 }
 
  async function deleteTopic(id) {
-    const deletedTopic = await query ("DELETE FROM strengths_weaknesses WHERE unique_id = $1", [id]);
-    return deletedTopic
+    const deletedTopic = await query ("DELETE FROM strengths_weaknesses WHERE unique_id = $1 RETURNING *", [id]);
+    return deletedTopic.rows
 }
 
 async function addTopic(newTopic) {
