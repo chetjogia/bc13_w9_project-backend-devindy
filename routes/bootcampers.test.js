@@ -1,7 +1,7 @@
-const request = require ("supertest");
-const { app } = require  ("../App");
-const { expect, test } = require ("@jest/globals")
-const { pool } = require('../db/index')
+import request from "supertest";
+import { app } from  "../App";
+import { expect, test } from "@jest/globals"
+import { pool } from '../db/index'
 // const  supertest from "supertest";
 
 describe ('get handler test suite', () => {
