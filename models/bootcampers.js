@@ -13,14 +13,36 @@ export async function getBootcamperByID(id) {
     return specificBootcamper.rows
 }
 
+
 export async function deleteTopic(id) {
     const deletedTopic = await pool.query ("DELETE FROM strengths_weaknesses WHERE unique_id = $1 RETURNING *", [id]);
+
     return deletedTopic.rows
 }
 
 export async function addTopic(newTopic) {
   
-  const AddedTopic = await pool.query ("INSERT into strengths_weaknesses (bootcamper_id, topic_id, strength_weakness, unique_id)VALUES ($1, $2, $3, $4) RETURNING *",[newTopic.bootcamperId, newTopic.topicId, newTopic.strengthOrWeakness, newTopic.uniqueId])
-  //const AddedTopicObject = AddedTopic.rows
+
+  const AddedTopic = await query ("INSERT into strengths_weaknesses (bootcamper_id, topic_id, strength_weakness, unique_id)VALUES ($1, $2, $3, $4) RETURNING *",[newTopic.bootcamperId, newTopic.topicId, newTopic.strengthOrWeakness, newTopic.uniqueId])
+  const AddedTopicObject = AddedTopic.rows
+  return AddedTopicObject
+}
+
+async function updateTopicHandler(updateTopic, bootID) {
+  
+  const AddedTopic = await query (`UPDATE bootcampers SET description=$1 WHERE bootcamper_id=$2;`,[updateTopic.description, bootID])
+  const AddedTopicObject = AddedTopic.rows
   return AddedTopic.rows
 }
+
+
+
+
+  module.exports = {
+    getBootcampers,
+    getBootcamperByID,
+    deleteTopic,
+    addTopic,
+    updateTopicHandler
+  }
+

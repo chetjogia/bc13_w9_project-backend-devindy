@@ -20,16 +20,17 @@ CREATE TABLE bootcampers (
     first_name VARCHAR(20) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
     password VARCHAR(30) NOT NULL,
-    image_url VARCHAR(500)
+    image_url VARCHAR(500),
+    description
 );
 
 INSERT INTO bootcampers
-    (first_name, last_name, password, image_url)
+    (first_name, last_name, password, image_url, description)
 VALUES
-    ('Alex', 'Chappell', 'password1', 'https://i.imgur.com/m9bWfmm.png'),
-    ('Chet', 'Jogia', 'password2', 'https://i.imgur.com/iQnoRtI.png'),
-    ('Luke', 'Adams', 'password3', 'https://i.imgur.com/sH2CoOS.png'),
-    ('Jason', 'Riley', 'password4', 'https://i.imgur.com/Kx2Tm8U.png');
+    ('Alex', 'Chappell', 'password1', 'https://i.imgur.com/m9bWfmm.png', 'hello this is a paragraph about Alex'),
+    ('Chet', 'Jogia', 'password2', 'https://i.imgur.com/iQnoRtI.png', 'hello this is a paragraph about Chet'),
+    ('Luke', 'Adams', 'password3', 'https://i.imgur.com/sH2CoOS.png','hello this is a paragraph about Alex'),
+    ('Jason', 'Riley', 'password4', 'https://i.imgur.com/Kx2Tm8U.png', 'hello this is a paragraph about Jason');
 
 
 CREATE TABLE strengths_weaknesses (
