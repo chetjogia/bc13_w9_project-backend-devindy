@@ -1,13 +1,15 @@
-const express = require('express')
-const router = express.Router()
+//const express = require('express')
+import express from 'express'
+export const router = express.Router()
 
-const {
+import {
     getBootcampers,
     getBootcamperByID,
     deleteTopic,
-    addTopic,
-    updateTopicHandler
-} = require("../models/bootcampers.js")
+
+    addTopic
+} from "../models/bootcampers.js"
+
 
 router.get('/bootcampers', async (req, res) => {
 
@@ -41,7 +43,3 @@ router.post('/bootcampers/', async function (req, res) {
     const addedTopic = await addTopic(newTopic)
     res.status(200).json({success: true, payload: addedTopic})
 })
-
-module.exports = {
-    router
-}

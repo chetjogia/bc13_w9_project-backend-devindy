@@ -1,14 +1,14 @@
-const express = require("express");
-//import express from 'express'
-const morgan = require("morgan")
-//import morgan from 'morgan'
+//const express = require("express");
+import express from 'express'
+//const morgan = require("morgan")
+import morgan from 'morgan'
 // const router = require ('./routes/bootcampers.js')
-const cors = require('cors')
+import cors from 'cors'
 
 
 const app = express();
 
-const { router }= require ("./routes/bootcampers.js")
+import { router } from "./routes/bootcampers.js"
 
 
 app.use(cors())
@@ -19,6 +19,4 @@ app.use(morgan("dev"))
 app.use(express.static("public"))
 
 app.use("/api", router)
-
-
-module.exports = { app }
+export { app }
