@@ -28,21 +28,13 @@ export async function addTopic(newTopic) {
   return AddedTopicObject
 }
 
-async function updateTopicHandler(updateTopic, bootID) {
+export async function updateTopicHandler(updateTopic, bootID) {
   
-  const AddedTopic = await query (`UPDATE bootcampers SET description=$1 WHERE bootcamper_id=$2;`,[updateTopic.description, bootID])
+  const AddedTopic = await pool.query (`UPDATE bootcampers SET description=$1 WHERE bootcamper_id=$2;`,[updateTopic.description, bootID])
   const AddedTopicObject = AddedTopic.rows
   return AddedTopic.rows
 }
 
 
 
-
-  module.exports = {
-    getBootcampers,
-    getBootcamperByID,
-    deleteTopic,
-    addTopic,
-    updateTopicHandler
-  }
 

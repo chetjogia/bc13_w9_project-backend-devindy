@@ -6,7 +6,7 @@ import {
     getBootcampers,
     getBootcamperByID,
     deleteTopic,
-
+    updateTopicHandler,
     addTopic
 } from "../models/bootcampers.js"
 
