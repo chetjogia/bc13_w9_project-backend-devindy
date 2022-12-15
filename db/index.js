@@ -5,9 +5,3 @@ import  pg  from 'pg'
 })
 
 export { pool }
-// module.exports = {
-//   pool,
-//   query: (text, params) => {
-    // return pool.query(text, params)
-//   },
-// }
